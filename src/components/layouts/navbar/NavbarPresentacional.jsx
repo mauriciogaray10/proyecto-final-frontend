@@ -11,18 +11,21 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Cart from '../../common/Cart';
+import { Link } from 'react-router-dom';
 
 
 
-const NavbarPresentacional = ({handleCloseNavMenu,  handleOpenUserMenu, handleCloseUserMenu, handleOpenNavMenu, pages, settings, anchorElNav, setAnchorElNav, anchorElUser, setAnchorElUser}) => {
+const NavbarPresentacional = ({handleCloseNavMenu,  handleOpenUserMenu, handleCloseUserMenu, handleOpenNavMenu, pages, settings, anchorElNav, anchorElUser}) => {
   return (
     <>
      <AppBar position="absolute" style={{ background: '#dc9f9f' }} >
       <Container maxWidth="xl" >
         <Toolbar disableGutters >
        
-   <img src="https://res.cloudinary.com/dpwzahxnx/image/upload/v1686710608/proyecto-final-frontend/default_transparent_765x625_4_bc3kte.png" />
-          
+       <Link to={'/'}>
+       <img src="https://res.cloudinary.com/dpwzahxnx/image/upload/v1686710608/proyecto-final-frontend/default_transparent_765x625_4_bc3kte.png" />
+       </Link>
+
           <Typography
             variant="h6"
             noWrap

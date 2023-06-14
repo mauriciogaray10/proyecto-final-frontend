@@ -1,6 +1,8 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import NavbarContainer from './components/layouts/navbar/NavbarContainer'
+import Layout from './components/layouts/layout/Layout.jsx'
+
+
 
 function App() {
 
@@ -8,7 +10,9 @@ function App() {
     <>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<NavbarContainer/>}/>
+      <Route element={<Layout/>}>
+        <Route path='/' element={<h1>Hola</h1>}/>
+      </Route>
     </Routes>
     </BrowserRouter>
 
