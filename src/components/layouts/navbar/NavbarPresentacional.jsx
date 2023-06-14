@@ -16,7 +16,7 @@ import MenuItem from '@mui/material/MenuItem';
 const NavbarPresentacional = ({handleCloseNavMenu,  handleOpenUserMenu, handleCloseUserMenu, handleOpenNavMenu, pages, settings, anchorElNav, setAnchorElNav, anchorElUser, setAnchorElUser}) => {
   return (
     <>
-     <AppBar position="absolute" >
+     <AppBar position="absolute" style={{ background: '#DF7401' }} >
       <Container maxWidth="xl" >
         <Toolbar disableGutters >
        
