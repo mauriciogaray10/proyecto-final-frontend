@@ -10,17 +10,18 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import Cart from '../../common/Cart';
 
 
 
 const NavbarPresentacional = ({handleCloseNavMenu,  handleOpenUserMenu, handleCloseUserMenu, handleOpenNavMenu, pages, settings, anchorElNav, setAnchorElNav, anchorElUser, setAnchorElUser}) => {
   return (
     <>
-     <AppBar position="absolute" style={{ background: '#DF7401' }} >
+     <AppBar position="absolute" style={{ background: '#dc9f9f' }} >
       <Container maxWidth="xl" >
         <Toolbar disableGutters >
        
-   <img src="\Empresa\Logo a la izq\Dawn Sky Connect\default_transparent_765x625 (3).png" />
+   <img src="https://res.cloudinary.com/dpwzahxnx/image/upload/v1686710608/proyecto-final-frontend/default_transparent_765x625_4_bc3kte.png" />
           
           <Typography
             variant="h6"
@@ -98,24 +99,26 @@ const NavbarPresentacional = ({handleCloseNavMenu,  handleOpenUserMenu, handleCl
           >
             
           </Typography>
+          
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: '#b13636', display: 'block' }}
               >
                 {page}
               </Button>
             ))}
           </Box>
-
+          <Cart /> 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Garay Carlos" src="https://res.cloudinary.com/dpwzahxnx/image/upload/v1686700089/proyecto-final-frontend/userProfileImage_mxzjqv.jpg" />
               </IconButton>
             </Tooltip>
+            
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
