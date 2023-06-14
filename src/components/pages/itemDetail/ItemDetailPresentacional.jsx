@@ -1,7 +1,11 @@
 
 const itemDetailPresentacional = () => {
   return (
-    <div>itemDetailPresentacional</div>
+    <div>
+
+      
+
+    </div>
   )
 }
 

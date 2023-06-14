@@ -1,14 +1,11 @@
-import ItemDetailPresentacional from "./ItemDetailPresentacional.jsx"
+
 
 const ItemDetailContainer = () => {
   
   
   
   
-  
-  
-  
-  return <ItemDetailPresentacional/>
+  return <ItemDetailPresentacional />
 }
 
 export default ItemDetailContainer
