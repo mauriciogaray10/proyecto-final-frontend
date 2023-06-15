@@ -24,7 +24,7 @@ const NavbarPresentacional = ({handleCloseNavMenu,  handleOpenUserMenu, handleCl
         <Toolbar disableGutters >
        
        <Link to={'/'}>
-       <img src="https://res.cloudinary.com/dpwzahxnx/image/upload/v1686710608/proyecto-final-frontend/default_transparent_765x625_4_bc3kte.png" />
+       Comision 43240
        </Link>
 
           <Typography
