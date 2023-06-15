@@ -12,6 +12,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Cart from '../../common/Cart';
 import { Link } from 'react-router-dom';
+import './Navbar.css'
 
 
 
@@ -78,7 +79,9 @@ const NavbarPresentacional = ({handleCloseNavMenu,  handleOpenUserMenu, handleCl
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">
+                    <Link className='titule-page' to={`/category/${page}`}>{page} </Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -110,7 +113,10 @@ const NavbarPresentacional = ({handleCloseNavMenu,  handleOpenUserMenu, handleCl
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: '#b13636', display: 'block' }}
               >
+                <Link className='titule-page' to={`/category/${page}`}>
                 {page}
+                </Link>
+                
               </Button>
             ))}
           </Box>
