@@ -1,11 +1,12 @@
+import ProductCard from "../../common/productCard/ProductCard";
 
-const itemDetailPresentacional = () => {
+const itemDetailPresentacional = ({elemento}) => {
+  
+console.log(elemento);
+
+
   return (
-    <div>
-
-      
-
-    </div>
+    <ProductCard elemento = {elemento}   />
   )
 }
 

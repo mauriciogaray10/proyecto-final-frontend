@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom';
 const NavbarPresentacional = ({handleCloseNavMenu,  handleOpenUserMenu, handleCloseUserMenu, handleOpenNavMenu, pages, settings, anchorElNav, anchorElUser}) => {
   return (
     <>
-     <AppBar position="absolute" style={{ background: '#dc9f9f' }} >
+     <AppBar position="static" style={{ background: '#dc9f9f' }} >
       <Container maxWidth="xl" >
         <Toolbar disableGutters >
        

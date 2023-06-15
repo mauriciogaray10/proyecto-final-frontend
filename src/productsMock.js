@@ -7,7 +7,7 @@ export const products = [
         stock: 2,
         description: "Desde Buenos Aires",
         category: "Vuelos",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669326932/free-metcon-4-zapatillas-de-entrenamiento-TQMCZg_fvia3m.png"
+        img: "https://res.cloudinary.com/dpwzahxnx/image/upload/v1686788493/proyecto-final-frontend/fotos-ciudades/rio-de-janeiro_xwqplz.jpg"
     },
     {
         id: 2,
@@ -16,16 +16,16 @@ export const products = [
         stock: 25,
         description: "Desde Buenos Aires",
         category: "Vuelos",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669326932/free-metcon-4-zapatillas-de-entrenamiento-TQMCZg_fvia3m.png"
+        img: "https://res.cloudinary.com/dpwzahxnx/image/upload/v1686788485/proyecto-final-frontend/fotos-ciudades/madrid_nrfsim.jpg"
     },
     {
         id: 3,
-        title: "San Carlos De Baroloche",
+        title: "San Carlos De Bariloche",
         price: '$13.312',
         stock: 60,
         description: "Desde Buenos Aires",
         category: "Micros",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430165/images_lujpmr.jpg"
+        img: "https://res.cloudinary.com/dpwzahxnx/image/upload/v1686788500/proyecto-final-frontend/fotos-ciudades/bariloche_nttsas.jpg"
     },
     {
         id: 4,
@@ -34,7 +34,7 @@ export const products = [
         stock: 8,
         description: "Desde Buenos Aires",
         category: "Vuelos",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430220/rtokwmt3j03bblbfhwhb.jpg"
+        img: "https://res.cloudinary.com/dpwzahxnx/image/upload/v1686788484/proyecto-final-frontend/fotos-ciudades/miami_qwsszj.jpg"
     },
     {
         id: 5,
@@ -43,7 +43,7 @@ export const products = [
         stock: 8,
         description: "Desde Buenos Aires",
         category: "Vuelos",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430220/rtokwmt3j03bblbfhwhb.jpg"
+        img: "https://res.cloudinary.com/dpwzahxnx/image/upload/v1686788491/proyecto-final-frontend/fotos-ciudades/cancun_orxfxz.jpg"
     },
     {
         id: 6,
@@ -52,7 +52,7 @@ export const products = [
         stock: 70,
         description: "Desde Buenos Aires",
         category: "Micros",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430220/rtokwmt3j03bblbfhwhb.jpg"
+        img: "https://res.cloudinary.com/dpwzahxnx/image/upload/v1686788484/proyecto-final-frontend/fotos-ciudades/mendoza_ctxaet.jpg"
     },
     {
         id: 7,
@@ -61,14 +61,14 @@ export const products = [
         stock: 70,
         description: "Desde Buenos Aires",
         category: "Micros",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430220/rtokwmt3j03bblbfhwhb.jpg"
+        img: "https://res.cloudinary.com/dpwzahxnx/image/upload/v1686788484/proyecto-final-frontend/fotos-ciudades/salta_mwafsu.jpg"
     },    {
         id: 8,
         title: "Roma",
-        price: '524.000',
+        price: '$524.000',
         stock: 10,
         description: "Desde Buenos Aires",
         category: "Vuelos",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430220/rtokwmt3j03bblbfhwhb.jpg"
+        img: "https://res.cloudinary.com/dpwzahxnx/image/upload/v1686788486/proyecto-final-frontend/fotos-ciudades/roma_einarp.jpg"
     },
 ]
