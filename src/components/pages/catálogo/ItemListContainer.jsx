@@ -1,6 +1,9 @@
 import ItemListPresentacional from "./ItemListPresentacional"
 import { useEffect, useState } from "react";
 import {products} from '../../../productsMock.js';
+import { useParams } from "react-router-dom";
+
+
 
 
 
@@ -8,18 +11,29 @@ import {products} from '../../../productsMock.js';
 const ItemListContainer = () => {
  
   const [items, setItems] = useState([]);
-  useEffect(()=>{
-    
-    const tarea = new Promise((resolve) =>{
-      resolve ( products);
+  const {categoryName} = useParams();
+  console.log(categoryName);
+
+
+
+
+  useEffect(() => {
+
+    let productosFiltrados = products.filter(
+      (product) => product.category === categoryName
+    );
+
+    const tarea = new Promise((resolve) => {
+      resolve(categoryName ? productosFiltrados : products);
     });
 
     tarea
-    .then((res)=> setItems(res))
-    .catch((rechazo)=>{
-      console.log('Solicitud rechazada');
-    });
-  }, []);
+      .then((respuesta) => setItems(respuesta))
+      .catch((rechazo) => {
+        console.log(rechazo);
+      });
+
+  }, [categoryName]);
 
 
 
