@@ -1,50 +1,32 @@
-import ItemListPresentacional from "./ItemListPresentacional"
-import { useEffect, useState } from "react";
-import {products} from '../../../productsMock.js';
-import { useParams } from "react-router-dom";
-
-
-
-
-
+import { useState, useEffect } from "react";
+import ItemListPresentacional from './ItemListPresentacional.jsx';
+import { products } from "../../../productsMock";
+import { useParams } from "react-router";
 
 const ItemListContainer = () => {
- 
-  const [items, setItems] = useState([]);
+  const [items, setitems] = useState([]);
+
   const {categoryName} = useParams();
-  console.log(categoryName);
 
-
-
-
-  useEffect(() => {
-
+  useEffect(()=>{
     let productosFiltrados = products.filter(
-      (product) => product.category === categoryName
-    );
+    (product) => product.category === categoryName
+  );
+  const tarea = new Promise((resolve) => {
+    resolve(categoryName ? productosFiltrados : products);
+  });
 
-    const tarea = new Promise((resolve) => {
-      resolve(categoryName ? productosFiltrados : products);
-    });
+  tarea
+    .then((res)=> setitems(res))
+    .catch((rej)=> console.log(rej));
 
-    tarea
-      .then((respuesta) => setItems(respuesta))
-      .catch((rechazo) => {
-        console.log(rechazo);
-      });
-
-  }, [categoryName]);
-
-
-
-
-
-
-
+  }, [categoryName])
   
-  return <ItemListPresentacional items={items}/>
-   
   
+  
+  
+  
+  return <ItemListPresentacional items = {items}/>;
 }
 
-export default ItemListContainer
+export default ItemListContainer;

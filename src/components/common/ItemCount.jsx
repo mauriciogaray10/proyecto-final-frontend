@@ -1,6 +1,6 @@
-import {useCount} from '../../hooks/useCount.jsx'
+import {useCount} from '../hooks/useCount.jsx'
 
-export const itemCount = ({stock, initial, onAdd}) => {
+export const ItemCount = ({stock, initial, onAdd}) => {
     const {count, decrement, increment} = useCount(initial, stock);
 
     return( <>

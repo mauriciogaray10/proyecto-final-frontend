@@ -1,5 +1,4 @@
 
-
 const CartPresentational = ({realizarCompra}) => {
   return (
     <div>
