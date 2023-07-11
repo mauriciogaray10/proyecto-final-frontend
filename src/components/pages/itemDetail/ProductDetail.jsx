@@ -2,8 +2,11 @@ import { ItemCount } from "../../common/ItemCount";
 import { Link } from "react-router-dom";
 
 
-const ProductDetail = ({ productSelected }) => {
-  
+
+const ProductDetail = ({ productSelected, agregarAlCarrito, quantity }) => {
+
+
+
 
   const onAdd = (cantidad) => {
     
@@ -11,9 +14,9 @@ const ProductDetail = ({ productSelected }) => {
       ...productSelected,
       quantity: cantidad,
     };
+    agregarAlCarrito(data)
 
     
-    console.log(data);
   };
 
   return (
@@ -25,7 +28,7 @@ const ProductDetail = ({ productSelected }) => {
       </div>
 
        {productSelected.stock > 0 ? (
-        <ItemCount stock={productSelected.stock} initial={1} onAdd={onAdd} />
+        <ItemCount stock={productSelected.stock} initial={quantity} onAdd={onAdd} />
         
       ) : (
         <h3>No hay stock</h3>

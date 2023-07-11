@@ -4,6 +4,7 @@ import Layout from './components/layouts/layout/Layout.jsx'
 import ItemListContainer from './components/pages/catálogo/ItemListContainer.jsx'
 import ProductDetailContainer from './components/pages/itemDetail/ProductDetailContainer.jsx'
 import CartContainer from './components/pages/cart/cartContainer.jsx'
+import CartContextProvider from './context/CartContext.jsx'
 
 
 
@@ -11,8 +12,10 @@ function App() {
 
   return (
     <>
+ 
     <BrowserRouter>
-    <Routes>
+   <CartContextProvider>
+          <Routes>
       <Route element={<Layout/>}>
         <Route path='/' element={<ItemListContainer/>}/>
         <Route path='/category/:categoryName' element={<ItemListContainer/>}/>
@@ -21,6 +24,7 @@ function App() {
       </Route>
       <Route path='*' element={<h1>Page not found</h1>}/>
     </Routes>
+    </CartContextProvider>
     </BrowserRouter>
 
     </>
