@@ -8,8 +8,6 @@ const ProductDetailContainer = () => {
   const [productSelected, setProductSelect] = useState({});
 
    const { id } = useParams()
-   console.log(id)
-  
 
   useEffect(() => {
     let productFind = products.find((product) => product.id === +id); 
