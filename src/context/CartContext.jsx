@@ -47,12 +47,21 @@ const CartContextProvider = ({children}) => {
         setCart(newArray)
     }
     
+    const getTotalItems = () =>{
+      let sum = cart.reduce((acc, elemento)=>{
+        return acc + elemento.quantity
+      }, 0)
+      return sum
+
+    }
+    
   let data = {
     cart,
     agregarAlCarrito,
     cleanCart,
     removeById,
-    getTotalQuantityById
+    getTotalQuantityById, 
+    getTotalItems
   }
   
   
