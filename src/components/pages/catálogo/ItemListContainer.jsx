@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import ItemListPresentacional from './ItemListPresentacional.jsx';
-import { products } from "../../../productsMock";
 import { useParams } from "react-router";
+import {db} from '../../../firebaseConfig.js';
+import {collection, getDocs, query, where} from 'firebase/firestore' 
 
 const ItemListContainer = () => {
   const [items, setitems] = useState([]);
@@ -9,16 +10,25 @@ const ItemListContainer = () => {
   const {categoryName} = useParams();
 
   useEffect(()=>{
-    let productosFiltrados = products.filter(
-    (product) => product.category === categoryName
-  );
-  const tarea = new Promise((resolve) => {
-    resolve(categoryName ? productosFiltrados : products);
-  });
+    let itemsCollection = collection(db, 'products');
+    let consulta;
 
-  tarea
-    .then((res)=> setitems(res))
-    .catch((rej)=> console.log(rej));
+    if(!categoryName){
+      consulta = itemsCollection;
+    }else{
+      consulta = query(itemsCollection, where('category', '==', categoryName));
+    }
+    getDocs(consulta)
+    .then((res)=>{
+      let products = res.docs.map(item => {
+      return {
+        id: item.id,
+        ...item.data()
+      }
+      })
+      setitems(products)
+    })
+    .catch((err)=>{console.log(err);});
 
   }, [categoryName])
   
