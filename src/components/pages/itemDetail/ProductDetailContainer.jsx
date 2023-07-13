@@ -1,8 +1,9 @@
 import { useEffect, useState, useContext } from "react";
 import ProductDetail from "./ProductDetail";
-import { products } from "../../../productsMock";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
+import { db } from "../../../firebaseConfig";
+import {collection, getDoc, doc} from 'firebase/firestore'; 
 
 
 const ProductDetailContainer = () => {
@@ -14,15 +15,17 @@ const ProductDetailContainer = () => {
    let quantity = getTotalQuantityById(id)
 
   useEffect(() => {
-    let productFind = products.find((product) => product.id === +id); 
+    let itemColletion = collection(db, 'products');
+    let refDoc = doc(itemColletion, id);
+    getDoc(refDoc).then((res)=>{
+     setProductSelect({
+        id: res.id,
+        ...res.data()
+      })
+      
+    })
 
-    const getProduct = new Promise((res) => {
-      res(productFind);
-    });
 
-    getProduct
-      .then((res) => setProductSelect(res))
-      .catch((err) => console.log(err));
   }, [id]);
 
 

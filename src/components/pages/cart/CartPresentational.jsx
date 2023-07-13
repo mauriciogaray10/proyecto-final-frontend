@@ -14,7 +14,7 @@ const CartPresentational = ({realizarCompra, cart, removeById, cleanCart}) => {
               return (
                 <div key = {product.id}>
                   <h2>{product.title}</h2>
-                  <h3>{product.price}._</h3>
+                  <h3>${product.price}._</h3>
                   <button onClick={()=>removeById(product.id)}>Borrar</button>
                 </div>
               )

@@ -54,6 +54,12 @@ const CartContextProvider = ({children}) => {
       return sum
 
     }
+    const getTotalPrice = () => {
+      let total = cart.reduce( (acc, item) => {
+        return acc + (item.price * item.quantity);
+      }, 0)
+      return total;
+    }
     
   let data = {
     cart,
@@ -61,7 +67,8 @@ const CartContextProvider = ({children}) => {
     cleanCart,
     removeById,
     getTotalQuantityById, 
-    getTotalItems
+    getTotalItems,
+    getTotalPrice
   }
   
   

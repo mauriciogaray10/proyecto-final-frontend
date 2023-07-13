@@ -1,5 +1,4 @@
 import { ItemCount } from "../../common/ItemCount";
-import { Link } from "react-router-dom";
 import styles from "./productDetail.module.css";
 
 
@@ -38,7 +37,7 @@ const ProductDetail = ({ productSelected, agregarAlCarrito, quantity }) => {
           </h2>
           <h2 style={{ fontFamily: "monospace" }}>
             <span style={{ fontSize: "23px" }}>Precio:</span> 
-            {productSelected.price}.-
+            {productSelected.price}
           </h2>
         </div>
       </div>
