@@ -1,5 +1,6 @@
 import { ItemCount } from "../../common/ItemCount";
 import { Link } from "react-router-dom";
+import styles from "./productDetail.module.css";
 
 
 
@@ -17,25 +18,46 @@ const ProductDetail = ({ productSelected, agregarAlCarrito, quantity }) => {
     agregarAlCarrito(data)
 
     
-  };
+  }
 
   return (
-    <>
-      <div>
-        <h1>{productSelected.title}</h1>
-        <img src={productSelected.img} alt="" />
-        <h1>Unidades disponibles: {productSelected.stock}</h1>
-      </div>
+    <div>
+      <div className={styles.containerItemDetail}>
+        <div className={styles.containerImage}>
+          <img src={productSelected.img} alt="" />
+        </div>
 
-       {productSelected.stock > 0 ? (
-        <ItemCount stock={productSelected.stock} initial={quantity} onAdd={onAdd} />
-        
+        <div className={styles.containerDetail}>
+          <h2 style={{ fontFamily: "monospace" }}>
+            <span style={{ fontSize: "23px" }}>Nombre:</span>{" "}
+            {productSelected.title}
+          </h2>
+          <h2 style={{ fontFamily: "monospace" }}>
+            <span style={{ fontSize: "23px" }}>Descripcion:</span>{" "}
+            {productSelected.description}
+          </h2>
+          <h2 style={{ fontFamily: "monospace" }}>
+            <span style={{ fontSize: "23px" }}>Precio:</span> 
+            {productSelected.price}.-
+          </h2>
+        </div>
+      </div>
+     
+      {productSelected.stock > 0 ? (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <ItemCount
+            stock={productSelected.stock}
+            onAdd={onAdd}
+            initial={quantity}
+          />
+        </div>
       ) : (
-        <h3>No hay stock</h3>
+        <h2>No hay stock</h2>
       )}
-      <Link to={'/cart'}><button>Terminar mi compra</button></Link>
+
+        
       
-    </>
+    </div>
   );
 };
 

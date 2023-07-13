@@ -18,12 +18,10 @@ const CartPresentational = ({realizarCompra, cart, removeById, cleanCart}) => {
                   <button onClick={()=>removeById(product.id)}>Borrar</button>
                 </div>
               )
-            }), ( <button onClick={cleanCart}>Vaciar carrito</button>))
-            
+            }))
             
           }
-          
-          <button onClick={cleanCart}>Vaciar carrito</button>
+                  <button onClick={cleanCart}>Vaciar carrito</button>
             <button onClick={realizarCompra}>Comprar</button>
       
         </div>
