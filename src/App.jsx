@@ -5,6 +5,7 @@ import ItemListContainer from './components/pages/catálogo/ItemListContainer.js
 import ProductDetailContainer from './components/pages/itemDetail/ProductDetailContainer.jsx'
 import CartContainer from './components/pages/cart/cartContainer.jsx'
 import CartContextProvider from './context/CartContext.jsx'
+import CheckoutContainer from './components/pages/checkout/CheckoutContainer'
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/category/:categoryName' element={<ItemListContainer/>}/>
         <Route path='/item/:id' element={<ProductDetailContainer/>}/>
         <Route path='/cart' element={<CartContainer/>}/>
+        <Route path='/checkout' element={<CheckoutContainer/>}></Route>
       </Route>
       <Route path='*' element={<h1>Page not found</h1>}/>
     </Routes>

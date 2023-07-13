@@ -7,8 +7,7 @@ const CartContainer = () => {
    let {cart, removeById, cleanCart} = useContext(CartContext);
  const navigate = useNavigate();
  const realizarCompra = ()=>{
-    console.log('Se compraron los productos');
-    navigate('/');
+    navigate('/checkout');
  }
  
  
