@@ -1,35 +1,60 @@
-import { useEffect, useState, useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import ProductDetail from "./ProductDetail";
+
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
+import Swal from "sweetalert2";
 import { db } from "../../../firebaseConfig";
-import {collection, getDoc, doc} from 'firebase/firestore'; 
 
+import { collection, getDoc, doc } from "firebase/firestore";
 
 const ProductDetailContainer = () => {
   const [productSelected, setProductSelect] = useState({});
 
-  const {agregarAlCarrito, getTotalQuantityById} = useContext(CartContext);
+  const { addToCart, getTotalQuantityById } = useContext(CartContext);
 
-   const { id } = useParams()
-   let quantity = getTotalQuantityById(id)
+  const { id } = useParams();
+
+  const cantidad = getTotalQuantityById(id);
+
+  const onAdd = (cantidad) => {
+    let data = {
+      ...productSelected,
+      quantity: cantidad,
+    };
+
+    addToCart(data);
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Producto agregado exitosamente",
+      showConfirmButton: true,
+      timer: 1500,
+    });
+  };
 
   useEffect(() => {
-    let itemColletion = collection(db, 'products');
-    let refDoc = doc(itemColletion, id);
-    getDoc(refDoc).then((res)=>{
-     setProductSelect({
-        id: res.id,
-        ...res.data()
-      })
-      
-    })
-
-
+    let itemCollection = collection(db, "products");
+    let refDoc = doc(itemCollection, id);
+    getDoc(refDoc).then((res) => {
+      setProductSelect({ ...res.data(), id: res.id });
+    });
   }, [id]);
 
-
-  return <ProductDetail productSelected={productSelected} agregarAlCarrito={agregarAlCarrito} quantity={quantity} />;
+  return (
+    <div>
+      {productSelected.id ? (
+        <ProductDetail
+          cantidad={cantidad}
+          productSelected={productSelected}
+          addToCart={addToCart}
+          onAdd={onAdd}
+        />
+      ) : (
+        <h1>Loading...</h1>
+      )}
+    </div>
+  );
 };
 
 export default ProductDetailContainer;

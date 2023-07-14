@@ -1,24 +1,8 @@
+import { Link } from "react-router-dom";
 import { ItemCount } from "../../common/ItemCount";
-import styles from "./productDetail.module.css";
-
-
-
-const ProductDetail = ({ productSelected, agregarAlCarrito, quantity }) => {
-
-
-
-
-  const onAdd = (cantidad) => {
-    
-    let data = {
-      ...productSelected,
-      quantity: cantidad,
-    };
-    agregarAlCarrito(data)
-
-    
-  }
-
+import styles from "./ProductDetail.module.css";
+import { Button } from "@mui/material";
+const ProductDetail = ({ productSelected, cantidad, onAdd }) => {
   return (
     <div>
       <div className={styles.containerItemDetail}>
@@ -36,18 +20,17 @@ const ProductDetail = ({ productSelected, agregarAlCarrito, quantity }) => {
             {productSelected.description}
           </h2>
           <h2 style={{ fontFamily: "monospace" }}>
-            <span style={{ fontSize: "23px" }}>Precio:</span> 
-            {productSelected.price}
+            <span style={{ fontSize: "23px" }}>Precio:</span> $
+            {productSelected.price}.-
           </h2>
         </div>
       </div>
-     
       {productSelected.stock > 0 ? (
         <div style={{ display: "flex", justifyContent: "center" }}>
           <ItemCount
             stock={productSelected.stock}
             onAdd={onAdd}
-            initial={quantity}
+            initial={cantidad}
           />
         </div>
       ) : (

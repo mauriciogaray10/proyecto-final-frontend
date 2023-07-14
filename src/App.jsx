@@ -6,6 +6,7 @@ import ProductDetailContainer from './components/pages/itemDetail/ProductDetailC
 import CartContainer from './components/pages/cart/cartContainer.jsx'
 import CartContextProvider from './context/CartContext.jsx'
 import CheckoutContainer from './components/pages/checkout/CheckoutContainer'
+import AgregarDocs from './AgregarDocs'
 
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path='/item/:id' element={<ProductDetailContainer/>}/>
         <Route path='/cart' element={<CartContainer/>}/>
         <Route path='/checkout' element={<CheckoutContainer/>}/>
+        <Route path='/reFill' element={<AgregarDocs/>}/>
       </Route>
       <Route path='*' element={<h1>Page not found</h1>}/>
     </Routes>

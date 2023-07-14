@@ -8,7 +8,7 @@ export const CartContext = createContext();
 const CartContextProvider = ({children}) => {
    const [cart, setCart] = useState([])
 
-   const  agregarAlCarrito = (data) => {
+   const  addToCart = (data) => {
     if(isInCart(data.id)){
         let newArray = cart.map(product => {
             if(product.id === data.id){
@@ -63,7 +63,7 @@ const CartContextProvider = ({children}) => {
     
   let data = {
     cart,
-    agregarAlCarrito,
+    addToCart,
     cleanCart,
     removeById,
     getTotalQuantityById, 

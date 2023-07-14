@@ -29,7 +29,7 @@ const ProductCard = ({ elemento }) => {
           {elemento.description}
         </Typography>
         <Typography variant="subtitle1" textAlign={"center"}>
-          {elemento.price}.-
+          ${elemento.price}.-
         </Typography>
       </CardContent>
       <CardActions style={{ display: "flex", justifyContent: "center" }}>
