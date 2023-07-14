@@ -9,6 +9,7 @@ const CartContextProvider = ({children}) => {
    const [cart, setCart] = useState([])
 
    const  addToCart = (data) => {
+    
     if(isInCart(data.id)){
         let newArray = cart.map(product => {
             if(product.id === data.id){
@@ -20,7 +21,7 @@ const CartContextProvider = ({children}) => {
                 return product
             }
         })
-        setCart([newArray]);
+        setCart(newArray);
 
     }else{
         setCart([...cart, data])
@@ -51,6 +52,7 @@ const CartContextProvider = ({children}) => {
       let sum = cart.reduce((acc, elemento)=>{
         return acc + elemento.quantity
       }, 0)
+      console.log(sum);
       return sum
 
     }

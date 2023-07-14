@@ -1,25 +1,50 @@
-import * as React from 'react';
-import Badge from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
-
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  '& .MuiBadge-badge': {
-    right: -3,
-    top: 1,
-    border: `2px solid #b13636`,
-    padding: '0 4px',
-  },
-}));
-
-export default function Cart() {
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
+import "./Cart";
+const Cart = ({ cart, limpiar, removeById, total }) => {
   return (
-    <IconButton aria-label="cart" style={{ marginRight:'50px'}} >
-  <StyledBadge badgeContent={4} style={{ color: '#b13636'}}>
-    <ShoppingCartIcon />
-  </StyledBadge>
-</IconButton>
+    <div>
+      <div className="cart-container">
+        <div className="container-items">
+          {cart.map((item) => {
+            return (
+              <div key={item.id} className="cart-item">
+                <div className="cart-item-info">
+                  <h2>{item.name}</h2>
+                  <h2>${item.price}.-</h2>
+                  <h2>Unidades: {item.quantity}</h2>
+                </div>
+                <Button variant="contained" onClick={() => removeById(item.id)}>
+                  Quitar
+                </Button>
+              </div>
+            );
+          })}
+        </div>
+        <div className="cart-info">
+          <h2>Descripcion del carrito:</h2>
+          <h3>Cantidad de productos: </h3>
+          <h3>Precio total: {total}</h3>
+          {cart.length > 0 ? (
+            <div className="btn-cart">
+              <Button onClick={limpiar} variant="contained">
+                Vaciar carrito
+              </Button>
+              <Link to="/checkout">
+                <Button variant="contained">Finalizar compra</Button>
+              </Link>
+            </div>
+          ) : (
+            <Link to="/">
+              <Button variant="contained">Agregar productos</Button>
+            </Link>
+          )}
+
+          <h1>El total del carrito es ${total} .-</h1>
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default Cart;

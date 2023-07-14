@@ -1,21 +1,42 @@
-import { useNavigate } from "react-router-dom";
-import CartPresentational from './CartPresentational.jsx'
 import { useContext } from "react";
-import { CartContext } from "../../../context/CartContext.jsx";
+import { CartContext } from "../../../context/CartContext";
+import Swal from "sweetalert2";
+import Cart from '../../common/Cart.jsx'
+
 
 const CartContainer = () => {
-   let {cart, removeById, cleanCart} = useContext(CartContext);
- const navigate = useNavigate();
- const realizarCompra = ()=>{
-    navigate('/checkout');
- }
- 
- 
-    return (
-    <>
-        <CartPresentational realizarCompra = {realizarCompra} cart={cart} removeById={removeById} cleanCart={cleanCart}/>
-    </>
-  )
-}
+  const { cart, cleanCart, removeById, getTotalPrice } = useContext(CartContext);
 
-export default CartContainer
+  let total = getTotalPrice();
+
+  const limpiar = () => {
+    Swal.fire({
+      title: "Seguro quieres limpiar el carrito?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Si, limpiar",
+      denyButtonText: `No, cancelar`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        cleanCart();
+        Swal.fire("Carrito limpio", "", "success");
+      } else if (result.isDenied) {
+        Swal.fire("El carrito queda como estaba", "", "info");
+      }
+    });
+  };
+
+  return (
+    <div>
+      <Cart
+        total={total}
+        limpiar={limpiar}
+        cart={cart}
+        removeById={removeById}
+      />
+    </div>
+  );
+};
+
+export default CartContainer;
